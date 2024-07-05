@@ -10,10 +10,10 @@ interface FormData {
 
 export async function GET(request: NextRequest) {
   try {
-    const  formData:any = await prisma.monitors.findMany()
-
+    const  formData = await prisma.monitors.findMany({select:{id:true,name:true,fieldsToTrack:true,updatedAt:true,result:true}})
+    if(!formData) throw Error("Id deosnt exists")
     // Handle form data (e.g., save to a database, send an email, etc.)
-    // console.log('Form data received:', formData);
+    // //console.log('Form data received:', formData);
 
     return NextResponse.json(formData);
   } catch (error) {

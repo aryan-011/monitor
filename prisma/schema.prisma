@@ -18,5 +18,6 @@ model monitors{
   name String @unique
   curl String @unique
   fieldsToTrack String 
+  updatedAt DateTime @updatedAt
   result String
 }

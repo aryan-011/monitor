@@ -1,7 +1,10 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./navbar/navbar";
+import  ReduxProviders  from './reduxProvider';
+import { SnackbarProvider } from "./monitors/Snackbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <SnackbarProvider>
+      <ReduxProviders>
+
       {/* <Navbar/> */}
       <body className={inter.className}><Navbar/>{children}</body>
+      </ReduxProviders>
+
+      </SnackbarProvider>
     </html>
   );
 }
