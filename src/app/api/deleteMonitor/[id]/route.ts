@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { NextRequest, NextResponse } from 'next/server';
-import { generateFetchFromCurl } from '../../createMonitor/route';
+
 
 const prisma = new PrismaClient();
 
